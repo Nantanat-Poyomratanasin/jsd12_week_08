@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Castle from "./components/01_Castle";
+import SimpleAsyncAwait from "./examples/async/SimpleAsyncAwait";
 // import { useState, useContext } from "react";
 // import { MessageContext } from "./contexts/messageContext/MessageContext";
 
@@ -25,10 +26,16 @@ export default function App() {
     setQuestion(e.target.value);
   };
 
+  //############Class Lesson#################
   const handleAnswer = (e) => {
     console.log(e);
     setAnswer(e.target.value);
   };
+
+  //############Pokemon game#################
+  // const handleAnswer = (value) => {
+  //   setAnswer(value);
+  // };
 
   //const { question, handleQuestion, answer } = useContext(MessageContext);
 
@@ -57,6 +64,9 @@ export default function App() {
       {/* Castle is 2nd component, it will receive the question as a prop and send back the answer to App.jsx */}
       {/* เราต้องส่ง question และ answer ไปให้ Castle.jsx ด้วย เพราะ Castle.jsx จะเป็นตัวกลางในการส่งข้อมูลระหว่าง App.jsx และ SecretRoom.jsx */}
       <Castle question={question} answer={answer} handleAnswer={handleAnswer} />
+      {/* เรียก SimpleAsyncAwait component เพื่อแสดงผลการดึงข้อมูลจาก API ด้วย async/await */}
+      {/* SimpleAsyncAwait เป็น react componet อีกตัว */}
+      <SimpleAsyncAwait />
       {/* <Castle /> */}
     </div>
   );
